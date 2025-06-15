@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeuroGenius - Tu Asistente Creativo Definitivo</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Montserrat:wght@300;400;600&family=Space+Mono&display=swap" rel="stylesheet">
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    </head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <img src="assets/logo.svg" alt="NeuroGenius Logo">
+            <h1>NeuroGenius</h1>
+        </div>
+        <nav class="main-nav">
+            <a href="#home" class="nav-item active">Inicio</a>
+            <a href="#text-tools" class="nav-item">Generador de Texto</a>
+            <a href="#image-tools" class="nav-item">Generador de Imágenes</a>
+            <a href="#about" class="nav-item">Acerca de</a>
+            <a href="#contact" class="nav-item">Contacto</a>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <section id="home" class="hero-section active">
+            <div class="hero-content">
+                <h2 class="hero-title">Desbloquea tu Potencial Creativo con IA</h2>
+                <p class="hero-subtitle">NeuroGenius es tu socio inteligente para generar ideas, textos y arte visual en segundos.</p>
+                <div class="cta-buttons">
+                    <button class="btn btn-primary" data-target="text-tools">Crear Texto Ahora</button>
+                    <button class="btn btn-secondary" data-target="image-tools">Generar Imágenes</button>
+                </div>
+            </div>
+            <div class="ad-placeholder-hero">
+                <div class="ad-label">ANUNCIO</div>
+                <img src="https://via.placeholder.com/728x90/1a1a1a/00ffcc?text=PUBLICIDAD+ADSENSE" alt="Anuncio Top Banner">
+                </div>
+        </section>
+
+        <section id="text-tools" class="tool-section hidden">
+            <div class="container">
+                <h2 class="section-title">Generador de Texto Inteligente</h2>
+                <p class="section-description">Crea artículos, descripciones, titulares y más en segundos. ¡Deja que la IA escriba por ti!</p>
+
+                <div class="tool-card">
+                    <div class="form-group">
+                        <label for="text-topic">Tema o Palabras Clave:</label>
+                        <input type="text" id="text-topic" placeholder="Ej: 'Beneficios de la meditación', 'Descripción de zapatillas de correr'" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="text-type">Tipo de Contenido:</label>
+                        <select id="text-type">
+                            <option value="blog">Artículo de Blog</option>
+                            <option value="product-description">Descripción de Producto</option>
+                            <option value="headline">Titular Atractivo</option>
+                            <option value="social-post">Publicación para Redes Sociales</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="text-length">Longitud (aproximada):</label>
+                        <select id="text-length">
+                            <option value="short">Corta</option>
+                            <option value="medium">Media</option>
+                            <option value="long">Larga</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-primary generate-btn" id="generate-text">Generar Texto</button>
+                    <div class="loading-spinner hidden"></div>
+                    <textarea id="text-output" placeholder="Tu texto generado por IA aparecerá aquí..." readonly></textarea>
+                    <button class="btn btn-secondary copy-btn hidden" id="copy-text">Copiar Texto</button>
+                </div>
+
+                <div class="ad-placeholder-inline">
+                    <div class="ad-label">ANUNCIO</div>
+                    <img src="https://via.placeholder.com/300x250/1a1a1a/00ccff?text=ANUNCIO+ADSENSE+CUADRADO" alt="Anuncio Cuadrado">
+                    </div>
+            </div>
+        </section>
+
+        <section id="image-tools" class="tool-section hidden">
+            <div class="container">
+                <h2 class="section-title">Generador de Imágenes Creativo</h2>
+                <p class="section-description">Convierte tus ideas en arte visual. Describe lo que imaginas y nuestra IA lo creará.</p>
+
+                <div class="tool-card">
+                    <div class="form-group">
+                        <label for="image-prompt">Descripción de la Imagen:</label>
+                        <textarea id="image-prompt" rows="3" placeholder="Ej: 'Un dragón cibernético en una ciudad futurista al atardecer', 'Un gato astronauta flotando en el espacio con estrellas de neón'" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="image-style">Estilo Artístico:</label>
+                        <select id="image-style">
+                            <option value="photorealistic">Foto Realista</option>
+                            <option value="fantasy">Fantástico</option>
+                            <option value="cyberpunk">Cyberpunk</option>
+                            <option value="watercolor">Acuarela</option>
+                            <option value="cartoon">Dibujo Animado</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-primary generate-btn" id="generate-image">Generar Imagen</button>
+                    <div class="loading-spinner hidden"></div>
+                    <div id="image-output-container" class="image-output-container">
+                        <img id="generated-image" src="" alt="Imagen generada por IA" class="hidden">
+                        <p id="image-placeholder">Tu imagen generada por IA aparecerá aquí.</p>
+                    </div>
+                    <button class="btn btn-secondary copy-btn hidden" id="download-image">Descargar Imagen</button>
+                </div>
+
+                <div class="ad-placeholder-inline">
+                    <div class="ad-label">ANUNCIO</div>
+                    <img src="https://via.placeholder.com/336x280/1a1a1a/ff00ff?text=ANUNCIO+ADSENSE+VERTICAL" alt="Anuncio Rectángulo Grande">
+                    </div>
+            </div>
+        </section>
+
+        <section id="about" class="info-section hidden">
+            <div class="container">
+                <h2 class="section-title">Acerca de NeuroGenius</h2>
+                <p class="section-description">Nuestra misión es hacer la Inteligencia Artificial accesible para todos.</p>
+                <div class="ad-placeholder-inline">
+                    <div class="ad-label">ANUNCIO</div>
+                    <img src="https://via.placeholder.com/320x100/1a1a1a/00ff00?text=ANUNCIO+ADSENSE+HORIZONTAL" alt="Anuncio Móvil">
+                    </div>
+                <p>En NeuroGenius, creemos que la creatividad no debería tener límites. Desarrollamos herramientas intuitivas impulsadas por la última tecnología en IA para ayudarte a superar bloqueos creativos, automatizar tareas repetitivas y generar contenido de alta calidad en un instante.</p>
+                <p>Únete a nuestra comunidad de innovadores y transforma tu forma de trabajar y crear.</p>
+            </div>
+        </section>
+
+        <section id="contact" class="info-section hidden">
+            <div class="container">
+                <h2 class="section-title">Contáctanos</h2>
+                <p class="section-description">¿Preguntas, sugerencias o simplemente quieres saludar? ¡Estamos aquí para ti!</p>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label for="contact-name">Tu Nombre:</label>
+                        <input type="text" id="contact-name" placeholder="Ej: John Doe" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-email">Tu Email:</label>
+                        <input type="email" id="contact-email" placeholder="Ej: tu.email@ejemplo.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-message">Tu Mensaje:</label>
+                        <textarea id="contact-message" rows="5" placeholder="Escribe aquí tu consulta o comentario..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 NeuroGenius. Todos los derechos reservados.</p>
+        <div class="footer-links">
+            <a href="#">Política de Privacidad</a>
+            <a href="#">Términos de Servicio</a>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
